@@ -4,11 +4,11 @@ import Book from './Book'
 
 function Books({ items }) {
   return (
-    <div className={styles.wrapper}>
+    <ul className={styles.wrapper}>
       {uniqBy(items, 'id').map((item) => (
         <Book key={item.id} defaultClassName={styles.item} {...item} />
       ))}
-    </div>
+    </ul>
   )
 }
 

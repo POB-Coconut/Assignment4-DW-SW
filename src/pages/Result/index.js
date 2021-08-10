@@ -24,7 +24,7 @@ function Result() {
   }, [dispatch, search])
 
   return (
-    <div className={styles.wrapper}>
+    <main className={styles.wrapper}>
       <Stack gaps={[0, 10, 20, 20]}>
         <SearchForm />
         <LinkToFilter />
@@ -32,7 +32,7 @@ function Result() {
         <Pagination />
         {status === 'loading' && <Loading />}
       </Stack>
-    </div>
+    </main>
   )
 }
 
