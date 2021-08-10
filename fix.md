@@ -1,11 +1,3 @@
-### 세팅 관리
-
-1. index.js App.js, Routes.js 분리
-2. Routes.js Route 한 줄로
-3. 컴포넌트 function 보단 화살표 함수. 함수를 전달할 일이 많기 때문에 화살표 함수를 더 사용한다.
-4. 상대경로, 절대경로 지정. jsconfig.json
-5. logo192.png , logo512.png 삭제
-
 ### searchForm 관련
 
 1. <span hidden> 교체. input type="hidden" 으로
@@ -44,7 +36,6 @@
 
 ### 해야 할 것
 
-1. 라우터 상수 처리
 2. img alt 작성
 3. 로딩 컴포넌트 사용하기
 4. redux saga toolkit 사용할 것 있나 확인
@@ -57,9 +48,23 @@
 3. 리덕스 관련 정리
 
 4. 시멘틱 태그 정리
+   - main, ul, li, section, h3, img alt 태그 주기, marquee 지우기, <span role="img" aria-labelledby="books">
+     📚
+     </span>
+     <label> 이슈
 5. css 정리
+   - 없음. 잘했음.
 6. UI 정리
+   - 홈 버튼 생성하기
 7. 기능 문제 정리
+   - 없는 책 했을 때 오류 처리
 8. 폴더 구조에 대해
+   - 느낀점
 9. 상수 처리
-10. 코드 컨벤션.
+10. 코드 컨벤션
+
+- 변수명, 함수명 등..
+
+11. 버그, 오류 수정
+    없을 때 처리, 404 처리, </marquee> 안쓰기, 이모지 관련
+12. logo192.png , logo512.png 삭제

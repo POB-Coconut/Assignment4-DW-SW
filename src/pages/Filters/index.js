@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { cx } from 'emotion'
-import useForm from 'hooks/useForm'
+import useSearchForm from 'hooks/useSearchForm'
 import Stack from 'components/Stack'
 import Fieldset from 'components/Form/Fieldset'
 import Select from 'components/Form/Select'
@@ -10,7 +10,7 @@ import { BUTTON_GAP, FILTER_GAP, FILTERINGS, SORT_GAP } from 'utils/constants'
 
 function Filters() {
   const history = useHistory()
-  const { searchInfo, handleChange, handleSubmit } = useForm()
+  const { searchInfo, handleChange, handleSubmit } = useSearchForm()
   const handleCancel = () => {
     history.goBack()
   }

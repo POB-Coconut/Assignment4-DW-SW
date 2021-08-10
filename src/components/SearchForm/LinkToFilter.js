@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import IconFilter from './IconFilter'
 import { ROUTES } from 'utils/constants'
+import IconFilter from './IconFilter'
 
 function LinkToFilter() {
   const { search } = useLocation()
@@ -9,7 +9,7 @@ function LinkToFilter() {
   return (
     <Link
       to={{
-        pathname: ROUTES.FILTER,
+        pathname: ROUTES.FILTERS,
         search
       }}
       className={styles.wrapper}

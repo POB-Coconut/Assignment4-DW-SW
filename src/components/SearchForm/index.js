@@ -1,8 +1,8 @@
 import React from 'react'
-import useForm from '../../hooks/useForm'
+import useSearchForm from '../../hooks/useSearchForm'
 
 function SearchForm() {
-  const { searchInfo, handleChange, handleSubmit } = useForm()
+  const { searchInfo, handleChange, handleSubmit } = useSearchForm()
 
   return (
     <form onSubmit={handleSubmit} className={styles.wrapper}>
