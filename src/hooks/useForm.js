@@ -24,10 +24,10 @@ function reducer(state, action) {
 
 function useForm() {
   const history = useHistory()
-  const location = useLocation()
+  const { search } = useLocation()
   const [state, dispatch] = useReducer(reducer, {
     ...initialState,
-    ...parse(location.search)
+    ...parse(search)
   })
 
   function handleRouter(query) {
@@ -58,20 +58,9 @@ function useForm() {
     })
   }
 
-  function handleSelect(e) {
-    const { name, value } = e.target
-
-    handleChange(e)
-    handleRouter({
-      ...parse(location.search),
-      [name]: value
-    })
-  }
-
   return {
     state,
     handleChange,
-    handleSelect,
     handleSubmit
   }
 }

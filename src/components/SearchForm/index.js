@@ -1,34 +1,28 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
 import useForm from '../../hooks/useForm'
-import LinkToFilter from './LinkToFilter'
 
 function SearchForm() {
-  const location = useLocation()
-  const { state, handleChange, handleSubmit } = useForm()
+  const { searchInfo, handleChange, handleSubmit } = useForm()
 
   return (
     <form onSubmit={handleSubmit} className={styles.wrapper}>
       <fieldset>
-        <label htmlFor="q" className={styles.label}>
-          <span hidden>검색어</span>
-          <input
-            type="search"
-            id="q"
-            name="q"
-            defaultValue={state.q}
-            placeholder="제목, 저자, 출판사를 검색해 보세요"
-            required
-            onChange={handleChange}
-            className={styles.input}
-          />
-        </label>
+        <label htmlFor="searchBox" className={styles.label} />
+        <input type="hidden" id="searchWord" name="searchWord" />
+        <input
+          type="search"
+          id="searchBox"
+          name="q"
+          defaultValue={searchInfo.q}
+          placeholder="제목, 저자, 출판사를 검색해 보세요"
+          required
+          onChange={handleChange}
+          className={styles.input}
+        />
         <button type="submit" className={styles.submit}>
           검색
         </button>
       </fieldset>
-
-      {location.pathname === '/result' && <LinkToFilter />}
     </form>
   )
 }
