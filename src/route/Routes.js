@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
 import { useTransition, animated } from 'react-spring'
-import { Main, Result, Filters } from 'pages'
+import { Main, Result, Filters, NotFound } from 'pages'
 import { ROUTES } from 'utils/constants'
 
 function Routes() {
@@ -18,6 +18,7 @@ function Routes() {
         <Route exact path={ROUTES.HOME} component={Main} />
         <Route path={ROUTES.RESULT} component={Result} />
         <Route path={ROUTES.FILTERS} component={Filters} />
+        <Route component={NotFound} />
       </Switch>
     </animated.div>
   ))

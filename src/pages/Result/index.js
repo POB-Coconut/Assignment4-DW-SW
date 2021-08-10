@@ -6,14 +6,15 @@ import SearchForm from 'components/SearchForm'
 import Books from 'components/Books'
 import Pagination from 'components/Books/Pagination'
 import Stack from 'components/Stack'
-import LinkToFilter from 'components/SearchForm/LinkToFilter'
+import LinkToFilter from 'components/Form/LinkToFilter'
 import Loading from 'components/Loading'
-import { INIT_INDEX } from 'utils/constants'
+import { INIT_INDEX, STATUS } from 'utils/constants'
 
 function Result() {
   const dispatch = useDispatch()
   const { items, status } = useSelector((state) => state.books)
   const { search } = useLocation()
+  const isLoading = status === STATUS.Loading
 
   useEffect(() => {
     if (!search) {
@@ -30,7 +31,7 @@ function Result() {
         <LinkToFilter />
         <Books items={items} />
         <Pagination />
-        {status === 'loading' && <Loading />}
+        {isLoading && <Loading />}
       </Stack>
     </main>
   )

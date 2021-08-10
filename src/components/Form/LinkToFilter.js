@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { ROUTES } from 'utils/constants'
-import IconFilter from './IconFilter'
+import IconFilter from 'utils/icons/IconFilter'
 
 function LinkToFilter() {
   const { search } = useLocation()
