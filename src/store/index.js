@@ -1,10 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import search from './search'
-import books from './books'
+import rootReducer from 'reducers'
 
-export default configureStore({
-  reducer: {
-    search,
-    books
-  }
+const store = configureStore({
+  reducer: rootReducer,
+  devTools: process.env.NODE_ENV !== 'production'
 })
+
+export default store

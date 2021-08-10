@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchBooks, selectBooks } from '../../store/books'
-import SearchForm from '../../components/SearchForm'
-import Books from '../../components/Books'
-import Pagination from '../../components/Books/Pagination'
-import Stack from '../../components/Stack'
+import { fetchBooks, selectBooks } from 'reducers/books'
+import SearchForm from 'components/SearchForm'
+import Books from 'components/Books'
+import Pagination from 'components/Books/Pagination'
+import Stack from 'components/Stack'
 import LinkToFilter from 'components/SearchForm/LinkToFilter'
 
 function Result() {
   const dispatch = useDispatch()
-  const { search } = useLocation()
   const { items } = useSelector(selectBooks)
+  const { search } = useLocation()
 
   useEffect(() => {
     if (!search) {

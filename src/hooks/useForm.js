@@ -25,7 +25,7 @@ function reducer(state, action) {
 function useForm() {
   const history = useHistory()
   const { search } = useLocation()
-  const [state, dispatch] = useReducer(reducer, {
+  const [searchInfo, dispatch] = useReducer(reducer, {
     ...initialState,
     ...parse(search)
   })
@@ -42,7 +42,7 @@ function useForm() {
   function handleSubmit(e) {
     e.preventDefault()
 
-    const query = flow(omitBy(isEmpty))(state)
+    const query = flow(omitBy(isEmpty))(searchInfo)
 
     handleRouter(query)
   }
@@ -59,7 +59,7 @@ function useForm() {
   }
 
   return {
-    state,
+    searchInfo,
     handleChange,
     handleSubmit
   }
