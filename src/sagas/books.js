@@ -23,17 +23,3 @@ function* fetchBooksSaga(action) {
 export function* booksSaga() {
   yield takeLatest(getItemsStart, fetchBooksSaga)
 }
-
-// export const fetchBooksSaga =
-//   (search, startIndex = 0) =>
-//   async (dispatch) => {
-//     try {
-//       dispatch(getItemsStart(startIndex))
-
-//       const response = await getBooks(search, startIndex)
-//       const data = await response.json()
-//       dispatch(getItemsSuccess({ ...data, startIndex }))
-//     } catch (error) {
-//       dispatch(getItemsFailure(error))
-//     }
-//   }

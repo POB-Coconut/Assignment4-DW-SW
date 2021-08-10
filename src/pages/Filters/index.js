@@ -6,7 +6,7 @@ import Stack from 'components/Stack'
 import Fieldset from 'components/Form/Fieldset'
 import Select from 'components/Form/Select'
 import Radio from 'components/Form/Radio'
-import { ButtonGaps, FilterGaps, Filterings, SortGaps } from 'utils/constants'
+import { BUTTON_GAP, FILTER_GAP, FILTERINGS, SORT_GAP } from 'utils/constants'
 
 function Filters() {
   const history = useHistory()
@@ -17,10 +17,10 @@ function Filters() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Stack gaps={FilterGaps}>
+      <Stack gaps={FILTER_GAP}>
         <Fieldset legend="필터링">
           <Select id="filter" value={searchInfo.filter} onChange={handleChange}>
-            {Filterings.map(([value, label]) => (
+            {FILTERINGS.map(([value, label]) => (
               <option key={value} value={value}>
                 {label}
               </option>
@@ -29,7 +29,7 @@ function Filters() {
         </Fieldset>
 
         <Fieldset legend="도서 종류">
-          <Stack gaps={SortGaps} direction="horizontal">
+          <Stack gaps={SORT_GAP} direction="horizontal">
             <Radio
               id="printTypeAll"
               name="printType"
@@ -58,7 +58,7 @@ function Filters() {
         </Fieldset>
 
         <Fieldset legend="정렬 순서">
-          <Stack gaps={FilterGaps} direction="horizontal">
+          <Stack gaps={FILTER_GAP} direction="horizontal">
             <Radio
               id="orderByRelevance"
               name="orderBy"
@@ -78,7 +78,7 @@ function Filters() {
           </Stack>
         </Fieldset>
 
-        <Stack gaps={ButtonGaps} direction="horizontal">
+        <Stack gaps={BUTTON_GAP} direction="horizontal">
           <button
             type="button"
             className={cx([styles.button, styles.cancel])}

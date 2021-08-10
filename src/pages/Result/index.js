@@ -8,19 +8,20 @@ import Pagination from 'components/Books/Pagination'
 import Stack from 'components/Stack'
 import LinkToFilter from 'components/SearchForm/LinkToFilter'
 import Loading from 'components/Loading'
+import { INIT_INDEX } from 'utils/constants'
 
 function Result() {
   const dispatch = useDispatch()
-  const { items, startIndex, status } = useSelector((state) => state.books)
+  const { items, status } = useSelector((state) => state.books)
   const { search } = useLocation()
 
   useEffect(() => {
-    if (!search || status === 'success') {
+    if (!search) {
       return
     }
 
-    dispatch(getItemsStart({ search, startIndex }))
-  }, [dispatch, search, startIndex, status])
+    dispatch(getItemsStart({ search, INIT_INDEX }))
+  }, [dispatch, search])
 
   return (
     <div className={styles.wrapper}>

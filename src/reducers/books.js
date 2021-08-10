@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { Status } from 'utils/constants'
+import { STATUS } from 'utils/constants'
 
 const initialState = {
   items: [],
   totalItems: 0,
   startIndex: 0,
-  status: Status.Idle,
+  status: STATUS.Idle,
   error: null
 }
 
@@ -19,7 +19,7 @@ const booksSlice = createSlice({
       }
 
       state.error = null
-      state.status = Status.Loading
+      state.status = STATUS.Loading
     },
     getItemsSuccess(state, action) {
       const { items, totalItems, startIndex } = action.payload
@@ -28,7 +28,7 @@ const booksSlice = createSlice({
       state.items = nextItems
       state.startIndex = nextItems.length
       state.totalItems = totalItems
-      state.status = Status.Success
+      state.status = STATUS.Success
     },
     getItemsFailure(state, action) {
       state.error = action.payload

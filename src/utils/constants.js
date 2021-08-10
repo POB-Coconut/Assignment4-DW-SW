@@ -1,7 +1,8 @@
 export const BASE_URL = 'https://www.googleapis.com/books/v1/volumes'
-export const FilterGaps = [0, 20, 20, 40]
-export const SortGaps = [0, 20, 20]
-export const ButtonGaps = [0, 10]
+export const FILTER_GAP = [0, 20, 20, 40]
+export const SORT_GAP = [0, 20, 20]
+export const BUTTON_GAP = [0, 10]
+export const INIT_INDEX = 0
 
 export const ROUTES = {
   HOME: '/',
@@ -9,14 +10,14 @@ export const ROUTES = {
   FILTERS: '/filters'
 }
 
-export const Status = {
+export const STATUS = {
   Idle: 'idle',
   Loading: 'loading',
   Success: 'success',
   Failure: 'failure'
 }
 
-export const Filterings = [
+export const FILTERINGS = [
   ['', '없음'],
   ['partial', '미리보기 가능'],
   ['full', '전체 공개'],
