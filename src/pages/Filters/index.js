@@ -1,32 +1,26 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { cx } from 'emotion'
-import useForm from '../../hooks/useForm'
-import Stack from '../../components/Stack'
-import Fieldset from '../../components/Form/Fieldset'
-import Select from '../../components/Form/Select'
-import Radio from '../../components/Form/Radio'
+import useForm from 'hooks/useForm'
+import Stack from 'components/Stack'
+import Fieldset from 'components/Form/Fieldset'
+import Select from 'components/Form/Select'
+import Radio from 'components/Form/Radio'
+import { ButtonGaps, FilterGaps, Filterings, SortGaps } from 'utils/constants'
 
 function Filters() {
   const history = useHistory()
-  const { state, handleChange, handleSubmit } = useForm()
+  const { searchInfo, handleChange, handleSubmit } = useForm()
   const handleCancel = () => {
     history.goBack()
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <Stack gaps={[0, 20, 20, 40]}>
+      <Stack gaps={FilterGaps}>
         <Fieldset legend="필터링">
-          <Select id="filter" value={state.filter} onChange={handleChange}>
-            {[
-              ['', '없음'],
-              ['partial', '미리보기 가능'],
-              ['full', '전체 공개'],
-              ['ebooks', '전체 eBooks'],
-              ['free-ebooks', '무료 eBooks'],
-              ['paid-ebooks', '유료 eBooks']
-            ].map(([value, label]) => (
+          <Select id="filter" value={searchInfo.filter} onChange={handleChange}>
+            {Filterings.map(([value, label]) => (
               <option key={value} value={value}>
                 {label}
               </option>
@@ -35,12 +29,12 @@ function Filters() {
         </Fieldset>
 
         <Fieldset legend="도서 종류">
-          <Stack gaps={[0, 20, 20]} direction="horizontal">
+          <Stack gaps={SortGaps} direction="horizontal">
             <Radio
               id="printTypeAll"
               name="printType"
               value="all"
-              checked={state.printType === 'all'}
+              checked={searchInfo.printType === 'all'}
               onChange={handleChange}
               label="전체"
             />
@@ -48,7 +42,7 @@ function Filters() {
               id="printTypeBooks"
               name="printType"
               value="books"
-              checked={state.printType === 'books'}
+              checked={searchInfo.printType === 'books'}
               onChange={handleChange}
               label="일반도서"
             />
@@ -56,7 +50,7 @@ function Filters() {
               id="printTypeMagazines"
               name="printType"
               value="magazines"
-              checked={state.printType === 'magazines'}
+              checked={searchInfo.printType === 'magazines'}
               onChange={handleChange}
               label="잡지"
             />
@@ -64,12 +58,12 @@ function Filters() {
         </Fieldset>
 
         <Fieldset legend="정렬 순서">
-          <Stack gaps={[0, 20, 20]} direction="horizontal">
+          <Stack gaps={FilterGaps} direction="horizontal">
             <Radio
               id="orderByRelevance"
               name="orderBy"
               value="relevance"
-              checked={state.orderBy === 'relevance'}
+              checked={searchInfo.orderBy === 'relevance'}
               onChange={handleChange}
               label="관련성"
             />
@@ -77,14 +71,14 @@ function Filters() {
               id="orderByNewest"
               name="orderBy"
               value="newest"
-              checked={state.orderBy === 'newest'}
+              checked={searchInfo.orderBy === 'newest'}
               onChange={handleChange}
               label="최신순"
             />
           </Stack>
         </Fieldset>
 
-        <Stack gaps={[0, 10]} direction="horizontal">
+        <Stack gaps={ButtonGaps} direction="horizontal">
           <button
             type="button"
             className={cx([styles.button, styles.cancel])}

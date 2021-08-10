@@ -1,12 +1,13 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectBooks, Status, getItemsStart } from 'reducers/books'
+import { getItemsStart } from 'reducers/books'
 import { useLocation } from 'react-router-dom'
+import { Status } from 'utils/constants'
 
 function Pagination() {
   const dispatch = useDispatch()
-  const location = useLocation()
-  const { status, startIndex } = useSelector(selectBooks)
+  const { search } = useLocation()
+  const { status, startIndex } = useSelector((state) => state.books)
   const isLoading = status === Status.Loading
 
   return (
@@ -17,7 +18,7 @@ function Pagination() {
         if (isLoading) {
           return
         }
-        dispatch(getItemsStart(location.search, startIndex))
+        dispatch(getItemsStart({ search, startIndex }))
       }}
     >
       {isLoading ? '로딩중...' : '더보기'}

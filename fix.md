@@ -21,3 +21,29 @@
 2. useForm의 역할은 검색 정보의 결과를 반환하고 라우터 이동을 하는 기능임. 굳이 useForm이란 함수명을 사용해야 하나? -> 보류
    정보 검색 결과 반환과 라우터의 기능을 분리 ? -> 보류 ( 영상 보고 판단 해보자 )
 3. Result 페이지 보면 location.search를 구조화할당해 사용했음. 하나로 통일하자. 여기서 구조화할당 사용하기
+
+### result 관련
+
+1. Loading 컴포넌트 사용
+2. loading 통일하기
+
+### redux 관련
+
+1. redux thunk 분리 -> saga로 변경하면서 폴더 나누기
+2. selectBooks 삭제 -> Result 페이지 useSelector로 바로 가져올 수 있음.
+3. api utils로 빼내기
+4. constatns 상수화 처리
+5. Status 상수화 처리
+6. result status 관리
+7. pagination dispatch 변수 설정
+
+### filter 페이지
+
+1. Filterings 상수 처리
+2. gaps 들 상수 처리
+
+#### 라우터 상수처리하기
+
+#### img alt 작성하기
+
+#### 로딩 컴포넌트 사용하기

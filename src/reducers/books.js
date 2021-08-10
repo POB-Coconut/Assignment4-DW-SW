@@ -1,12 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-// import { getBooks } from '../api'
-
-export const Status = {
-  Idle: 'idle',
-  Loading: 'loading',
-  Success: 'success',
-  Failure: 'failure'
-}
+import { Status } from 'utils/constants'
 
 const initialState = {
   items: [],
@@ -47,22 +40,3 @@ export const { getItemsStart, getItemsSuccess, getItemsFailure } =
   booksSlice.actions
 
 export default booksSlice.reducer
-
-// saga를 의미하나?
-export const selectBooks = (state) => {
-  return state.books
-}
-
-// export const fetchBooks =
-//   (search, startIndex = 0) =>
-//   async (dispatch) => {
-//     try {
-//       dispatch(getItemsStart(startIndex))
-
-//       const response = await getBooks(search, startIndex)
-//       const data = await response.json()
-//       dispatch(getItemsSuccess({ ...data, startIndex }))
-//     } catch (error) {
-//       dispatch(getItemsFailure(error))
-//     }
-//   }
