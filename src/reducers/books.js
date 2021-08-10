@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getBooks } from '../api'
+// import { getBooks } from '../api'
 
 export const Status = {
   Idle: 'idle',
@@ -49,17 +49,20 @@ export const { getItemsStart, getItemsSuccess, getItemsFailure } =
 export default booksSlice.reducer
 
 // saga를 의미하나?
-export const selectBooks = (state) => state.books
+export const selectBooks = (state) => {
+  return state.books
+}
 
-export const fetchBooks =
-  (search, startIndex = 0) =>
-  async (dispatch) => {
-    try {
-      dispatch(getItemsStart(startIndex))
-      const response = await getBooks(search, startIndex)
-      const data = await response.json()
-      dispatch(getItemsSuccess({ ...data, startIndex }))
-    } catch (error) {
-      dispatch(getItemsFailure(error))
-    }
-  }
+// export const fetchBooks =
+//   (search, startIndex = 0) =>
+//   async (dispatch) => {
+//     try {
+//       dispatch(getItemsStart(startIndex))
+
+//       const response = await getBooks(search, startIndex)
+//       const data = await response.json()
+//       dispatch(getItemsSuccess({ ...data, startIndex }))
+//     } catch (error) {
+//       dispatch(getItemsFailure(error))
+//     }
+//   }

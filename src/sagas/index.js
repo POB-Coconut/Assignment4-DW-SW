@@ -1,6 +1,6 @@
 import { all } from 'redux-saga/effects'
-import { commentsSaga } from './comment'
+import { booksSaga } from './books'
 
 export function* rootSaga() {
-  yield all([commentsSaga()])
+  yield all([booksSaga()])
 }

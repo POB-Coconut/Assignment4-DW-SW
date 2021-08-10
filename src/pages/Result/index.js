@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchBooks, selectBooks } from 'reducers/books'
+import { getItemsStart, selectBooks } from 'reducers/books'
 import SearchForm from 'components/SearchForm'
 import Books from 'components/Books'
 import Pagination from 'components/Books/Pagination'
@@ -10,7 +10,7 @@ import LinkToFilter from 'components/SearchForm/LinkToFilter'
 
 function Result() {
   const dispatch = useDispatch()
-  const { items } = useSelector(selectBooks)
+  const { items } = useSelector((state) => state.books)
   const { search } = useLocation()
 
   useEffect(() => {
@@ -18,7 +18,7 @@ function Result() {
       return
     }
 
-    dispatch(fetchBooks(search))
+    dispatch(getItemsStart(search))
   }, [dispatch, search])
 
   return (
