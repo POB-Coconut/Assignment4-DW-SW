@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getItemsStart } from 'reducers/books'
+import { INIT_INDEX, RESULT_GAP, ROUTES, STATUS } from 'utils/constants'
 import SearchForm from 'components/SearchForm'
 import Books from 'components/Books'
 import Pagination from 'components/Books/Pagination'
 import Stack from 'components/Stack'
 import LinkToFilter from 'components/Form/LinkToFilter'
 import Loading from 'components/Loading'
-import { INIT_INDEX, RESULT_GAP, ROUTES, STATUS } from 'utils/constants'
+import { getItemsStart } from 'reducers/books'
 
-function Result() {
+const Result = () => {
   const dispatch = useDispatch()
   const { items, status } = useSelector((state) => state.books)
   const { search } = useLocation()

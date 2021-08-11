@@ -2,7 +2,7 @@ import React from 'react'
 import uniqBy from 'lodash/uniqBy'
 import Book from './Book'
 
-function Books({ items }) {
+const Books = ({ items }) => {
   return (
     <ul className={styles.wrapper}>
       {uniqBy(items, 'id').map((item) => (

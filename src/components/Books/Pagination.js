@@ -1,10 +1,10 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getItemsStart } from 'reducers/books'
 import { useLocation } from 'react-router-dom'
 import { STATUS } from 'utils/constants'
+import { getItemsStart } from 'reducers/books'
 
-function Pagination() {
+const Pagination = () => {
   const dispatch = useDispatch()
   const { search } = useLocation()
   const { status, startIndex } = useSelector((state) => state.books)

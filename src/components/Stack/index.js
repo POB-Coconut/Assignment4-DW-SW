@@ -1,7 +1,7 @@
 import React from 'react'
 import { css } from 'emotion'
 
-function Stack({ children, gaps, direction = 'vertical' }) {
+const Stack = ({ children, gaps, direction = 'vertical' }) => {
   const dir = direction === 'vertical' ? 'top' : 'left'
   const style = css`
     ${gaps.map(

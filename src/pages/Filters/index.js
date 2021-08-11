@@ -1,14 +1,14 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { cx } from 'emotion'
+import { BUTTON_GAP, FILTER_GAP, FILTERINGS, SORT_GAP } from 'utils/constants'
 import useSearchForm from 'hooks/useSearchForm'
 import Stack from 'components/Stack'
 import Fieldset from 'components/Form/Fieldset'
 import Select from 'components/Form/Select'
 import Radio from 'components/Form/Radio'
-import { BUTTON_GAP, FILTER_GAP, FILTERINGS, SORT_GAP } from 'utils/constants'
+import { cx } from 'emotion'
 
-function Filters() {
+const Filters = () => {
   const history = useHistory()
   const { searchInfo, handleChange, handleSubmit } = useSearchForm()
   const handleCancel = () => {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Fieldset({ legend, children }) {
+const Fieldset = ({ legend, children }) => {
   return (
     <fieldset className={styles.wrapper}>
       <legend className={styles.legend}>{legend}</legend>

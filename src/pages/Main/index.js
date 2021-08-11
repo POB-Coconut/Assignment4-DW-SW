@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchForm from 'components/SearchForm'
 
-function Main() {
+const Main = () => {
   return (
     <div className={styles.wrapper}>
       <SearchForm />

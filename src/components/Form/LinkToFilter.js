@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { ROUTES } from 'utils/constants'
 import IconFilter from 'utils/icons/IconFilter'
 
-function LinkToFilter() {
+const LinkToFilter = () => {
   const { search } = useLocation()
 
   return (

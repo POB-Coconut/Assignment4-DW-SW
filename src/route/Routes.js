@@ -1,10 +1,10 @@
 import React from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
 import { useTransition, animated } from 'react-spring'
-import { Main, Result, Filters, NotFound } from 'pages'
 import { ROUTES } from 'utils/constants'
+import { Main, Result, Filters, NotFound } from 'pages'
 
-function Routes() {
+const Routes = () => {
   const location = useLocation()
   const transitions = useTransition(location, (location) => location.pathname, {
     from: { opacity: 0 },

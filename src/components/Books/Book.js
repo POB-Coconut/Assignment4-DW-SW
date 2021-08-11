@@ -1,7 +1,7 @@
 import React from 'react'
 import { css, cx } from 'emotion'
 
-function Book({ defaultClassName, volumeInfo }) {
+const Book = ({ defaultClassName, volumeInfo }) => {
   return (
     <li className={cx([defaultClassName, styles.wrapper])}>
       <img

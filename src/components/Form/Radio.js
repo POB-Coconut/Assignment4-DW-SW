@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Radio({ id, label, ...rest }) {
+const Radio = ({ id, label, ...rest }) => {
   return (
     <label htmlFor={id} className={styles.wrapper}>
       <input type="radio" id={id} className={styles.input} {...rest} /> {label}

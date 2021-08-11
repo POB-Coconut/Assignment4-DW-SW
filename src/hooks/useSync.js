@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { setSearch } from 'store/search'
 
-function useSync() {
+const useSync = () => {
   const dispatch = useDispatch()
   const { search } = useLocation()
 

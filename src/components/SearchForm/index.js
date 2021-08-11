@@ -1,7 +1,7 @@
 import React from 'react'
-import useSearchForm from '../../hooks/useSearchForm'
+import useSearchForm from 'hooks/useSearchForm'
 
-function SearchForm() {
+const SearchForm = () => {
   const { searchInfo, handleChange, handleSubmit } = useSearchForm()
 
   return (

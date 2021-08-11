@@ -22,7 +22,7 @@ function reducer(state, action) {
   }
 }
 
-function useSearchForm() {
+const useSearchForm = () => {
   const history = useHistory()
   const { search } = useLocation()
   const [searchInfo, dispatch] = useReducer(reducer, {

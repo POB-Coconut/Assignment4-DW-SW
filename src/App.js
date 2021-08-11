@@ -1,7 +1,7 @@
 import React from 'react'
 import Routes from 'route/Routes'
 
-function App() {
+const App = () => {
   return (
     <div className={styles.wrapper}>
       <Routes />
