@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getItemsStart } from 'reducers/books'
 import SearchForm from 'components/SearchForm'
@@ -8,13 +8,14 @@ import Pagination from 'components/Books/Pagination'
 import Stack from 'components/Stack'
 import LinkToFilter from 'components/Form/LinkToFilter'
 import Loading from 'components/Loading'
-import { INIT_INDEX, STATUS } from 'utils/constants'
+import { INIT_INDEX, RESULT_GAP, ROUTES, STATUS } from 'utils/constants'
 
 function Result() {
   const dispatch = useDispatch()
   const { items, status } = useSelector((state) => state.books)
   const { search } = useLocation()
   const isLoading = status === STATUS.Loading
+  const isFailure = status === STATUS.Failure
 
   useEffect(() => {
     if (!search) {
@@ -26,12 +27,19 @@ function Result() {
 
   return (
     <main className={styles.wrapper}>
-      <Stack gaps={[0, 10, 20, 20]}>
+      <Stack gaps={RESULT_GAP}>
+        <Link to={ROUTES.HOME}>main으로 가기</Link>
         <SearchForm />
         <LinkToFilter />
-        <Books items={items} />
-        <Pagination />
-        {isLoading && <Loading />}
+        {!isFailure ? (
+          <>
+            <Books items={items} />
+            <Pagination />
+            {isLoading && <Loading />}
+          </>
+        ) : (
+          <div>데이터가 존재하지 않습니다.</div>
+        )}
       </Stack>
     </main>
   )

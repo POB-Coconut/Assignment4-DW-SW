@@ -31,6 +31,7 @@ const booksSlice = createSlice({
       state.status = STATUS.Success
     },
     getItemsFailure(state, action) {
+      state.status = STATUS.Failure
       state.error = action.payload
     }
   }

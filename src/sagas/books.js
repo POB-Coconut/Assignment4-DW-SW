@@ -13,6 +13,7 @@ function* fetchBooksSaga(action) {
       payload: { ...response.data, startIndex }
     })
   } catch (e) {
+    console.log(e)
     yield put({
       type: getItemsFailure.type,
       payload: e

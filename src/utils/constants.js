@@ -1,4 +1,5 @@
 export const BASE_URL = 'https://www.googleapis.com/books/v1/volumes'
+export const RESULT_GAP = [0, 10, 20, 20]
 export const FILTER_GAP = [0, 20, 20, 40]
 export const SORT_GAP = [0, 20, 20]
 export const BUTTON_GAP = [0, 10]
