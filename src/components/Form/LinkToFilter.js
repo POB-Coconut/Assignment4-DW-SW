@@ -1,15 +1,16 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import IconFilter from './IconFilter'
+import { ROUTES } from 'utils/constants'
+import IconFilter from 'utils/icons/IconFilter'
 
 function LinkToFilter() {
-  const location = useLocation()
+  const { search } = useLocation()
 
   return (
     <Link
       to={{
-        pathname: '/filters',
-        search: location.search
+        pathname: ROUTES.FILTERS,
+        search
       }}
       className={styles.wrapper}
     >

@@ -1,10 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit'
-import search from './search'
-import books from './books'
+import createSagaMiddleware from 'redux-saga'
+import rootReducer from 'reducers'
+import { rootSaga } from '../sagas'
 
-export default configureStore({
-  reducer: {
-    search,
-    books
-  }
+const sagaMiddleware = createSagaMiddleware()
+
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: [sagaMiddleware],
+  devTools: process.env.NODE_ENV !== 'production'
 })
+
+sagaMiddleware.run(rootSaga)
+
+export default store

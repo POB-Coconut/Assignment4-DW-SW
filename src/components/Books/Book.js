@@ -3,7 +3,7 @@ import { css, cx } from 'emotion'
 
 function Book({ defaultClassName, volumeInfo }) {
   return (
-    <div className={cx([defaultClassName, styles.wrapper])}>
+    <li className={cx([defaultClassName, styles.wrapper])}>
       <img
         src={volumeInfo?.imageLinks?.thumbnail}
         className={cx(
@@ -13,9 +13,9 @@ function Book({ defaultClassName, volumeInfo }) {
             height: 128
           })
         )}
-        alt=""
+        alt="thumnail"
       />
-      <div
+      <section
         className={cx(
           styles.body,
           css({
@@ -24,9 +24,9 @@ function Book({ defaultClassName, volumeInfo }) {
         )}
       >
         <div className={styles.content}>
-          <div className={styles.title} title={volumeInfo?.title}>
+          <h3 className={styles.title} title={volumeInfo?.title}>
             {volumeInfo?.title}
-          </div>
+          </h3>
           <p
             className={cx(
               styles.description,
@@ -48,8 +48,8 @@ function Book({ defaultClassName, volumeInfo }) {
           )}
           <p className={styles.publishedDate}>{volumeInfo?.publishedDate}</p>
         </div>
-      </div>
-    </div>
+      </section>
+    </li>
   )
 }
 
