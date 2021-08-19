@@ -19,7 +19,7 @@ npm run start | yarn start
 ```
 
 ### 폴더 구조
-
+```html
 📦src  
 ┣ 📂components
 ┣ 📂hooks
@@ -33,3 +33,4 @@ npm run start | yarn start
 ┃ ┗ 📂icon
 ┣ 📜App.js  
 ┗ 📜index.js
+```
