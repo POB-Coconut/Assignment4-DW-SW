@@ -5,8 +5,8 @@ import { ROUTES } from 'utils/constants'
 import loadable from '@loadable/component'
 
 const HOME = loadable(() => import('pages/Main'))
-const RESULT = loadable(() => import('pages/RESULT'))
-const FILTERS = loadable(() => import('pages/FILTERS'))
+const RESULT = loadable(() => import('pages/Result'))
+const FILTERS = loadable(() => import('pages/Filters'))
 const NotFound = loadable(() => import('pages/NotFound'))
 
 const Routes = () => {
