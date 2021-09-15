@@ -2,7 +2,12 @@ import React from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
 import { useTransition, animated } from 'react-spring'
 import { ROUTES } from 'utils/constants'
-import { Main, Result, Filters, NotFound } from 'pages'
+import loadable from '@loadable/component'
+
+const HOME = loadable(() => import('pages/Main'))
+const RESULT = loadable(() => import('pages/Result'))
+const FILTERS = loadable(() => import('pages/Filters'))
+const NotFound = loadable(() => import('pages/NotFound'))
 
 const Routes = () => {
   const location = useLocation()
@@ -15,9 +20,9 @@ const Routes = () => {
   return transitions.map(({ item: location, props, key }) => (
     <animated.div key={key} className="absolute w-full" style={props}>
       <Switch location={location}>
-        <Route exact path={ROUTES.HOME} component={Main} />
-        <Route path={ROUTES.RESULT} component={Result} />
-        <Route path={ROUTES.FILTERS} component={Filters} />
+        <Route exact path={ROUTES.HOME} component={HOME} />
+        <Route path={ROUTES.RESULT} component={RESULT} />
+        <Route path={ROUTES.FILTERS} component={FILTERS} />
         <Route component={NotFound} />
       </Switch>
     </animated.div>
