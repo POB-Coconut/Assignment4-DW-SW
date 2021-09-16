@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { Helmet } from 'react-helmet'
 import { INIT_INDEX, RESULT_GAP, ROUTES, STATUS } from 'utils/constants'
 import SearchForm from 'components/SearchForm'
 import Books from 'components/Books'
@@ -27,6 +28,9 @@ const Result = () => {
 
   return (
     <main className={styles.wrapper}>
+      <Helmet>
+        <title>검색 결과</title>
+      </Helmet>
       <Stack gaps={RESULT_GAP}>
         <Link to={ROUTES.HOME}>main으로 가기</Link>
         <SearchForm />

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 import { BUTTON_GAP, FILTER_GAP, FILTERINGS, SORT_GAP } from 'utils/constants'
 import useSearchForm from 'hooks/useSearchForm'
 import Stack from 'components/Stack'
@@ -17,6 +18,9 @@ const Filters = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <Helmet>
+        <title>필터링</title>
+      </Helmet>
       <Stack gaps={FILTER_GAP}>
         <Fieldset legend="필터링">
           <Select id="filter" value={searchInfo.filter} onChange={handleChange}>
