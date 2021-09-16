@@ -1,18 +1,29 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
+import { render, hydrate } from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
+import { Provider } from 'react-redux'
 import App from 'App'
 import './index.css'
 import store from 'store'
 
-ReactDOM.render(
-  <Provider store={store}>
+const rootElement = document.getElementById('root')
+
+if (rootElement !== null && rootElement.hasChildNodes()) {
+  hydrate(
     <Router basename="Assignment4-DW-SW">
-      <React.StrictMode>
+      <Provider store={store}>
         <App />
-      </React.StrictMode>
-    </Router>
-  </Provider>,
-  document.getElementById('root')
-)
+      </Provider>
+    </Router>,
+    rootElement
+  )
+} else {
+  render(
+    <Router basename="Assignment4-DW-SW">
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </Router>,
+    rootElement
+  )
+}
